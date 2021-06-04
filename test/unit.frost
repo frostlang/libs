@@ -1,0 +1,12 @@
+import("resolvers")
+
+//
+// basic resolver for unit tests
+//
+// @test "example test" 1==2;
+// ^ this test will fail
+//
+test : pub Resolver fn(ast: AST){
+    test_id := ast.next().as_string();
+    test_expression := ast.next();
+}

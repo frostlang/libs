@@ -1,0 +1,7 @@
+Vector : pub type struct {
+    data : []Any;
+}
+
+Vector.size : pub fn (this) {
+    this.data.size;
+}

@@ -1,0 +1,18 @@
+max : pub fn (a : Any, b : Any) result : Any {
+    result = if a > b a else b;
+}
+
+min : pub fn (a : Any, b : Any) result : Any {
+    result = if a < b a else b;
+}
+
+abs : pub fn (a : Any) result : Any {
+    result = if a < 0 a*-1 else a;
+}
+
+pow : pub fn (a : Any, b : Any) result : Any{
+    result = a;
+    for b {
+        result *= a;
+    }
+}

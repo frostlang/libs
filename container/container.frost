@@ -1,0 +1,3 @@
+Container : pub type interface {
+    size : pub fn U32;
+}
