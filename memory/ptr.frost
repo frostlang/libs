@@ -1,0 +1,70 @@
+
+
+Counter : pub type {
+    internal_count : u32 = 0
+}
+
+Counter.{
+    increment : pub fn (this) {
+        @thread_safe
+        this.internal_count++
+    }
+    decrement : pub fn (this) {
+        @thread_safe
+        this.internal_count++
+    }
+}
+
+
+Ptr : pub interface {
+
+}
+
+/*
+Shared implements Ptr interface
+
+===usage===
+
+{
+    x : shared = shared (123)
+    y : shared = x
+    z : shared = shared y
+}
+
+*/
+
+@debugable
+Shared : pub type {
+    counter : ^Counter
+    type : type
+    data : ^any
+}
+
+Shared.{
+
+    access : pub fn (this) (any, type) {
+        ^this.data
+    }
+
+    copy : pub fn (this, other) {
+        
+    }
+
+    construct : pub fn (this, data : any){
+        this.counter = new Counter
+        this.counter.increment
+        this.data = new data
+    }
+
+    construct : pub fn (this, data : shared){
+        copy this, data
+        this.counter.increment
+    }
+
+    destruct : pub fn (this){
+        this.counter.decrement
+        if this.counter.internal_count <= 0 {
+            delete this.data
+        }
+    }
+}
