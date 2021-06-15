@@ -1,0 +1,18 @@
+
+
+Time : pub type struct {
+
+}
+
+Timer : pub type struct {
+
+}
+
+Timer.{
+    start : pub fn (this) {
+
+    }
+    stop : pub fn (this) {
+
+    }
+}

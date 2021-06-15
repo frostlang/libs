@@ -1,0 +1,8 @@
+
+
+Stream : pub type interface {
+    write : pub fn (^Stream, data : any) Stream
+    read : pub fn (^Stream, location : ^any) Stream
+}
+
+

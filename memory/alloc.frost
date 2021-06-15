@@ -1,0 +1,35 @@
+import(
+    "utils/assert",
+    "utils/debug"
+    )
+
+Allocator : type interface {
+    new : pub fn (data : any) ^any
+    new : pub fn (type : type) ^any
+    delete : pub fn (data : ^any)
+}
+
+@assertable
+@debugable
+GeneralAllocator : pub type struct {
+
+}
+
+
+default_allocator : pub GeneralAllocator
+
+
+new : pub fn (data : any) ^any = {
+    assert default_allocator
+    default_allocator.new data
+}
+
+new : pub fn (type : type) ^any = {
+    assert default_allocator
+    default_allocator.new type
+}
+
+delete : pub fn (data : ^any) = {
+    assert default_allocator
+    default_allocator.delete data
+}

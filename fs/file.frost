@@ -1,0 +1,27 @@
+File : pub type struct {
+    
+    fd : u32 // file descriptor
+
+
+}
+
+Path : pub type struct {
+    
+}
+
+
+
+
+FileStream : pub type struct {
+
+}
+
+FileStream.{
+    write : pub fn (this, data : any) FileStream {
+        ^this
+    }
+
+    read : pub fn (this, location : ^any) FileStream {
+        ^this
+    }
+}

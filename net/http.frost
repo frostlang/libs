@@ -1,0 +1,16 @@
+import("url")
+
+HTTPResponse : pub type struct {
+    status : u32
+    data : [_]u8
+}
+
+HttpClient : pub type struct {
+
+}
+
+HttpClient.{
+    get : pub fn (this, path : URL, args : [_]string) HTTPResponse {}
+    put : pub fn (this, path : URL, args : [_]string) HTTPResponse {}
+    del : pub fn (this, path : URL, args : [_]string) HTTPResponse {}
+}

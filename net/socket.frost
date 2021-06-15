@@ -1,0 +1,4 @@
+Socket : pub type struct {
+    host : string
+    port : u32
+}

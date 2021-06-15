@@ -1,0 +1,9 @@
+IPV4 : pub type struct {
+    header : u32
+}
+
+IPV6 : pub type struct {
+
+}
+
+

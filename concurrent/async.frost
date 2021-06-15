@@ -1,0 +1,48 @@
+import("concurrent/thread")
+
+
+/*
+
+Example usage
+
+data := await job()
+println("data = {}", data)
+
+// the above translates to
+
+Promise((){
+    job()
+}).done((data : any){
+    println(data)
+}).start()
+
+
+*/
+
+Promise : pub type struct {
+    resolved : u1
+    job_thread : Thread
+    job : fn
+    on_done : fn
+}
+Promise.{
+    start : fn (this){
+        // first set resolved to false
+        this.resolved = false
+        // then launch a new thread that performs the job,
+        // and once it is done call the 'done' callback,
+        // finally set resolved to true
+        this.job_thread = Thread((){
+            this.job
+            this.on_done
+            this.resolved = true
+            })
+        this.job_thread.start
+    }
+    done : fn (this, on_done : fn) {
+        this.on_done = on_done
+    }
+}
+
+
+

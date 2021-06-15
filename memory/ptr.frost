@@ -1,4 +1,4 @@
-
+module memory
 
 Counter : pub type {
     internal_count : u32 = 0
@@ -47,7 +47,7 @@ Shared.{
     }
 
     copy : pub fn (this, other) {
-        
+
     }
 
     construct : pub fn (this, data : any){

@@ -1,0 +1,21 @@
+
+
+/*
+
+Example usage
+parser := ArgsParser
+parser.option("hello").arg(string).exec((cmd : Command) println("hello {}", cmd.args[0]))
+
+*/
+ArgsParser : pub type struct {
+    
+}
+
+
+ArgsParser.{
+    parse : pub fn (this, cmd : string){}
+    option : pub fn (this){}
+    then : pub fn (this){}
+    arg : pub fn (this){}
+    exec : pub fn (this){}
+}
